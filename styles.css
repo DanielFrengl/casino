@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+}
+
+.slot-machine {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.reels {
+    display: flex;
+    gap: 10px;
+}
+
+.reel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    border: 2px solid #333;
+    width: 100px;
+    height: 300px;
+    background-color: #000;
+    position: relative;
+}
+
+.slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    height: 100px;
+    transition: transform 1s ease-in-out;
+}
+
+/* Reel spin animation */
+.scrolling .slot {
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+/* Smoothly stop animation */
+.reel.stopping .slot {
+    animation: none;
+}
+
+/* Winning symbols flash */
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.winning {
+    animation: flash 0.5s ease-in-out infinite;
+}
+
+/* Add drop-in effect for symbols */
+@keyframes drop {
+    0% { transform: translateY(-300px); }
+    100% { transform: translateY(0); }
+}
+
+.slot {
+    animation: drop 0.5s ease-out;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+button:active {
+    background-color: #218838;
+}
+
+.reward-message {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #f39c12;
+}
+
+/* Additional styling */
+.game-info {
+    margin-top: 20px;
+}
+
+input[type="number"] {
+    padding: 5px;
+    width: 60px;
+}
